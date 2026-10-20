@@ -42,7 +42,7 @@ public class PracticaOrdenamientoBusqueda {
                     if (!generado) {
                         System.out.println("Primero debe generar los numeros (Opcion 1).");
                     } else {
-                        // La busqueda binaria requiere que el arreglo este previamente ordenado
+                        
                         if (!ordenado) {
                             System.out.println("Ordenando el arreglo antes de realizar la busqueda...");
                             ordenarQuicksort(listaOriginal, 0, listaOriginal.length - 1);
@@ -54,7 +54,7 @@ public class PracticaOrdenamientoBusqueda {
                         int posicion = buscar(listaOriginal, valorBuscado, 0, listaOriginal.length - 1);
 
                         if (posicion != -1) {
-                            // Determina si la posicion encontrada esta en la mitad izquierda o derecha
+                          
                             int mitad = (listaOriginal.length - 1) / 2;
                             String lado = (posicion <= mitad) ? "LADO IZQUIERDO" : "LADO DERECHO";
                             System.out.println("El numero " + valorBuscado + " fue encontrado en el indice [" + posicion + "] (" + lado + ").");
@@ -88,7 +88,6 @@ public class PracticaOrdenamientoBusqueda {
         int number;
         System.out.println("\nLista original:");
         for (int i = 0; i < listaOriginal.length; i++) {
-            // Genera numeros enteros aleatorios entre 1 y 50
             number = (int) (Math.random() * 50 + 1);
             listaOriginal[i] = number;
             System.out.print(listaOriginal[i] + " ");
@@ -106,7 +105,7 @@ public class PracticaOrdenamientoBusqueda {
 
         System.out.println("Limites que se analizan. Inferior: " + i + " Superior: " + j + " Pivote: " + pivote);
 
-        // Particion del arreglo en base al pivote
+       
         do {
             while (listaOriginal[i] < pivote) i++;
             while (listaOriginal[j] > pivote) j--;
@@ -134,7 +133,7 @@ public class PracticaOrdenamientoBusqueda {
 
     public static int buscar(int listaOriginal[], int valorBuscado, int inferior, int superior) {
         int central;
-        // Caso base: el elemento no existe en el arreglo
+        
         if (inferior > superior) {
             return -1;
         } else {
@@ -142,10 +141,10 @@ public class PracticaOrdenamientoBusqueda {
             if (listaOriginal[central] == valorBuscado) {
                 return central;
             } else if (listaOriginal[central] < valorBuscado) {
-                // Busca recursivamente en la mitad derecha
+           
                 return buscar(listaOriginal, valorBuscado, central + 1, superior);
             } else {
-                // Busca recursivamente en la mitad izquierda
+                
                 return buscar(listaOriginal, valorBuscado, inferior, central - 1);
             }
         }
